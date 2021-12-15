@@ -6,7 +6,7 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 16:12:40 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/14 19:02:57 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/15 08:57:46 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct		s_env
 {
 	struct s_pile	*a;
 	struct s_pile	*b;
-	struct s_pile	*inst;
+	struct s_pile	*opr;
 }					t_env;
 
 t_pile	*lst_new(t_pile *prev);
