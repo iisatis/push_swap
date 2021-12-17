@@ -6,11 +6,36 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 16:57:48 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/17 15:27:45 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/17 15:36:07 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/push_swap.h"
+
+static int	ft_atoi(const char *str)
+{
+	long	n;
+	int		np;
+
+	n = 0;
+	np = 1;
+	while ((*str == ' ') || (*str >= 9 && *str <= 13))
+		str++;
+	if (*str == '-' || *str == '+')
+	{
+		if (*str == '-')
+			np *= -1;
+		str++;
+	}
+	while (*str >= '0' && *str <= '9')
+	{
+		n *= 10;
+		n += (*str - '0');
+		str++;
+	}
+	n *= np;
+	return (n);
+}
 
 void	clear_piles(t_env *piles)
 {
@@ -83,7 +108,7 @@ t_env	*pile_filler(char **args, int argc)
 	x = 0;
 	while (x < argc - 1)
 	{
-		piles->a->data = atoi(args[x + 1]);
+		piles->a->data = ft_atoi(args[x + 1]);
 		if (!piles->a->next)
 			piles->a->next = lst_new(piles->a);
 		piles->a = piles->a->next;
