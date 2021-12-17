@@ -6,13 +6,13 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 09:09:52 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/17 15:53:59 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/17 15:54:45 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/push_swap.h"
 
-int	get_top(int min, int max, t_env *piles)
+static int	get_top(int min, int max, t_env *piles)
 {
 	int	pos;
 
@@ -31,7 +31,7 @@ int	get_top(int min, int max, t_env *piles)
 	return (pos);
 }
 
-int	get_bot(int min, int max, t_env *piles)
+static int	get_bot(int min, int max, t_env *piles)
 {
 	int	pos;
 
