@@ -6,7 +6,7 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 16:57:48 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/15 09:19:30 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/17 15:27:45 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ t_pile	*lst_new(t_pile *prev)
 	return (new);
 }
 
-t_env	*pile_filler(int *args, int argc)
+t_env	*pile_filler(char **args, int argc)
 {
 	t_env	*piles;
 	int		x;
@@ -83,7 +83,7 @@ t_env	*pile_filler(int *args, int argc)
 	x = 0;
 	while (x < argc - 1)
 	{
-		piles->a->data = args[x];
+		piles->a->data = atoi(args[x + 1]);
 		if (!piles->a->next)
 			piles->a->next = lst_new(piles->a);
 		piles->a = piles->a->next;

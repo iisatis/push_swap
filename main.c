@@ -6,7 +6,7 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 18:01:17 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/15 08:20:52 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/17 15:29:20 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,8 @@ static void	test_printer(t_env *piles)
 int	main(int argc, char *argv[])
 {
 	t_env		*piles;
-	static int	arg[4000];
-	int			x;
 
-	x = 0;
-	while (argv[x + 1])
-	{
-		arg[x] = atoi(argv[x + 1]);
-		x++;
-	}
-	piles = pile_filler (arg, argc);
+	piles = pile_filler (argv, argc);
 	while (piles->a->prev)
 		piles->a = piles->a->prev;
 	test_printer(piles);
