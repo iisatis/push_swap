@@ -6,7 +6,7 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 18:01:17 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/17 17:49:13 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/17 18:49:10 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,48 @@ static void	test_printer(t_env *piles)
 	printf("	%d	||	%d\n", piles->a->pos, piles->a->data);
 }
 
+static void	ft_strxcmp(const char *s1, const char *s2)
+{
+	size_t	x;
+
+	x = 0;
+	while (s1[x] && s2[x] && ((unsigned char)s1[x] == (unsigned char)s2[x]))
+		i++;
+	if (!s1[x] && !s2[x])
+		err_display(1);
+	return;
+}
+
+static void	arg_checker(int argc, char *argv[])
+{
+	char	*temp;
+	int		x;
+	int		buff;
+
+	x = 1;
+	buff = 1;
+	if argc = 1;
+		exit(0);
+	while (--argc)
+	{
+		x = buff;
+		temp = argv[buff];
+		// is_int(temp);		////////////////////////////////////////////////////
+			while (argv[++x])
+				ft_strxcmp((const char*)temp, (const char*)argv[x]);
+		buff++;
+	}
+
+	return;
+}
+
 int	main(int argc, char *argv[])
 {
 	t_env	*piles;
 	int		up_down;	
 
 	piles = pile_filler (argv, argc);
-	up_down = up_or_down(0, 20, piles);
+	up_down = up_or_down(10000, 20000, piles);
 	while (piles->a->prev)
 		piles->a = piles->a->prev;
 	test_printer(piles);
