@@ -6,7 +6,7 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 09:09:52 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/17 17:39:00 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/17 17:42:38 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int	up_or_down(int min, int max, t_env *piles)
 	if (!top || !bot)
 		return (0);
 	else if (top <= bot)
-		return (1);
+		return (top);
 	else
-		return (2);
+		return (-bot);
 }
