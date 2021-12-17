@@ -6,7 +6,7 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 09:09:52 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/17 15:52:47 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/17 15:53:59 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ int	get_top(int min, int max, t_env *piles)
 		piles->a = piles->a->prev;
 	while (piles->a->next)
 	{
-		if (piles->a->data >= min && piles->a->data <= min)
+		if (piles->a->data >= min && piles->a->data <= max)
 			return (pos);
 		piles->a = piles->a->next;
 		pos++;
 	}
-	if (piles->a->data < min || piles->a->data > min)
+	if (piles->a->data < min || piles->a->data > max)
 		return (0);
 	return (pos);
 }
@@ -45,12 +45,12 @@ int	get_bot(int min, int max, t_env *piles)
 	}
 	while (piles->a->prev)
 	{
-		if (piles->a->data >= min && piles->a->data <= min)
+		if (piles->a->data >= min && piles->a->data <= max)
 			return (pos);
 		piles->a = piles->a->prev;
 		pos--;
 	}
-	if (piles->a->data < min || piles->a->data > min)
+	if (piles->a->data < min || piles->a->data > max)
 		return (0);
 	return (pos);
 }
