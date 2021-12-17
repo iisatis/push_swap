@@ -6,7 +6,7 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 18:01:17 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/17 18:49:10 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/17 18:51:19 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ int	main(int argc, char *argv[])
 	t_env	*piles;
 	int		up_down;	
 
+	arg_checker(argc, argv);
 	piles = pile_filler (argv, argc);
 	up_down = up_or_down(10000, 20000, piles);
 	while (piles->a->prev)
