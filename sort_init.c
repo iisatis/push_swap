@@ -6,7 +6,7 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 09:09:52 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/17 17:42:38 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/17 17:50:11 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	up_or_down(int min, int max, t_env *piles)
 
 	top = get_top(min, max, piles);
 	bot = get_bot(min, max, piles);
-	printf("\n	from top = %d	from bot = %d \n\n", top, bot);
+	printf("\n   from top = %d	     from bot = %d \n\n", top, bot);
 	while (piles->a->prev)
 		piles->a = piles->a->prev;
 	if (!top || !bot)
