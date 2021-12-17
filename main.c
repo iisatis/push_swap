@@ -6,7 +6,7 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 18:01:17 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/17 18:51:19 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/17 19:11:03 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,28 @@ static void	ft_strxcmp(const char *s1, const char *s2)
 		i++;
 	if (!s1[x] && !s2[x])
 		err_display(1);
+	return;
+}
+
+static void	is_int(char *arg)
+{
+	unsigned int	x;
+	long long		value;
+
+	x = 0;
+	if (arg[0] == '-')
+		x++;
+	if (!arg[x])
+		err_display(1);
+	while (arg[x])
+	{
+		if (arg[x] < '0' || arg[x] > '9')
+			err_display(1);
+		x++;
+	}
+
+
+	
 	return;
 }
 
