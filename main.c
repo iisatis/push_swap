@@ -6,7 +6,7 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 18:01:17 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/17 15:52:21 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/17 17:35:52 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ static void	test_printer(t_env *piles)
 		printf("	%d	||	%d\n", piles->a->pos, piles->a->data);
 		piles->a = piles->a->next;
 	}
+	printf("	%d	||	%d\n", piles->a->pos, piles->a->data);
 }
 
 int	main(int argc, char *argv[])
