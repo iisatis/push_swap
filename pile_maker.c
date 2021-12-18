@@ -6,7 +6,7 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 16:57:48 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/18 06:01:16 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/18 06:33:08 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ t_env	*pile_filler(char **args, int argc)
 	if (!piles)
 		return (NULL);
 	piles->b = lst_new(NULL);
-	piles->opr = lst_new(NULL);
+	piles->oprs = NULL;
 	piles->a = lst_new(NULL);
 	x = 1;
 	piles->a->data = ft_atoi(args[x]);

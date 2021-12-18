@@ -6,8 +6,19 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/15 09:09:52 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/18 06:24:33 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/18 06:33:51 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "./includes/push_swap.h"
 
+t_cmd	*cmds (t_env *piles, int argc)
+{
+
+
+
+
+
+
+
+}
