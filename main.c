@@ -6,7 +6,7 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 18:01:17 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/18 06:09:43 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/18 06:16:19 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,6 @@ static void	arg_checker(int argc, char *argv[])
 				ft_strxcmp((const char*)temp, (const char*)argv[x]);
 		buff++;
 	}
-
 	return;
 }
 
