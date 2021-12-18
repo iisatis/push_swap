@@ -6,7 +6,7 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 18:01:17 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/18 07:44:17 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/18 07:49:02 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,14 @@ int	main(int argc, char *argv[])
 	arg_checker(argc, argv);
 	piles = pile_filler (argv, argc);
 	up_down = up_or_down(1, 20, piles);
+	is_sorted(piles);
 	while (piles->a->prev)
 		piles->a = piles->a->prev;
 
 	if (argc < /* IDK YET */)
-		piles->ops = sort_small(piles);
+		piles->ops = sort_small(piles, argc - 1);
 	if (argc > /* IDK YET */)
-		piles->ops = sort_big(piles);
+		piles->ops = sort_big(piles, argc - 1);
 
 	test_printer(piles);
 	if (up_down > 0)
@@ -45,6 +46,7 @@ int	main(int argc, char *argv[])
 		printf("\n\n	first is down");
 	else if (up_down == 0)
 		printf("\n\n	none found");
+		
 	clear_piles (piles);
 	return (0);
 }
