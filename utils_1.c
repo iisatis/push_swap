@@ -6,7 +6,7 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 18:38:57 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/17 18:48:08 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/18 06:05:33 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@ static void	printer (char *str)
 	int	count;
 
 	count = 0;
-	while (str[count] && count < lgt)
-		ft_put_char(str[count++]);
+	while (str[count])
+		printer2(str[count++]);
 	return;
 }
 
 void	err_display (int value)
 {
 	if (value == 1)
-		printer("Error\n")
+		printer("Error\n");
 	exit(1);
 }
