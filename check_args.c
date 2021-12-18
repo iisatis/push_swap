@@ -6,7 +6,7 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 07:40:12 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/18 07:44:17 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/18 07:46:59 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ static void	is_num(char *arg)
 	return;
 }
 
-void	arg_checker(int argc, char *argv[])
+void	check_args(int argc, char *argv[])
 {
 	char	*temp;
 	int		x;
