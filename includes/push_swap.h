@@ -6,7 +6,7 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 16:12:40 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/18 06:32:51 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/18 07:29:17 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,16 @@ typedef struct s_env
 {
 	struct s_pile	*a;
 	struct s_pile	*b;
-	struct s_cmd	*oprs;
+	struct s_cmd	*ops;
 }					t_env;
 
 t_pile	*lst_new(t_pile *prev);
 t_env	*pile_filler(char **args, int argc);
 void	clear_piles(t_env *piles);
+void	clear_one_pile(t_pile *pile);
+void	printer (char *str);
 int		up_or_down(int min, int max, t_env *piles);
 void	err_display (int value);
+t_cmd	*start_sort (t_env *piles, int argc);
 
 #endif

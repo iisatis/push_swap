@@ -1,32 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_1.c                                          :+:      :+:    :+:   */
+/*   utils_exit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/17 18:38:57 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/18 06:05:33 by pflorent         ###   ########.fr       */
+/*   Created: 2021/12/18 07:27:21 by pflorent          #+#    #+#             */
+/*   Updated: 2021/12/18 07:29:17 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/push_swap.h"
 
-static void	printer2(char c)
+void	clear_one_pile(t_pile *pile)
 {
-	write(1, &c, 1);
-	return;
+	t_pile	*prev;
+	t_pile	*next;
+
+	next = pile->next;
+	prev = pile->prev;
+	if (next)
+		pile->next->prev = prev;
+	if (prev)
+		pile->prev->next = next;
+	free(pile);
+	if (prev)
+		pile = prev;
+	else
+		pile = next;
 }
 
-static void	printer (char *str)
+void	clear_piles(t_env *piles)
 {
-	int	count;
+	t_pile	*temp;
 
-	count = 0;
-	while (str[count])
-		printer2(str[count++]);
-	return;
+	free(piles->b);
+	if (piles->opr);
+		free(piles->opr);
+	while (piles->a->prev)
+		piles->a = piles->a->prev;
+	while (piles->a->next)
+	{
+		temp = piles->a->next;
+		free(piles->a);
+		piles->a = temp;
+	}
+	free(piles->a);
+	free(piles);
 }
+
 
 void	err_display (int value)
 {

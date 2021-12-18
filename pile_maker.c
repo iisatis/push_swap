@@ -6,7 +6,7 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 16:57:48 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/18 06:33:08 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/18 07:01:15 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,24 +33,6 @@ static int	ft_atoi(const char *str)
 	}
 	n *= np;
 	return (n);
-}
-
-void	clear_piles(t_env *piles)
-{
-	t_pile	*temp;
-
-	free(piles->b);
-	free(piles->opr);
-	while (piles->a->prev)
-		piles->a = piles->a->prev;
-	while (piles->a->next)
-	{
-		temp = piles->a->next;
-		free(piles->a);
-		piles->a = temp;
-	}
-	free(piles->a);
-	free(piles);
 }
 
 static void	pos_parser(t_env *piles, int len)
@@ -103,7 +85,7 @@ t_env	*pile_filler(char **args, int argc)
 	if (!piles)
 		return (NULL);
 	piles->b = lst_new(NULL);
-	piles->oprs = NULL;
+	piles->ops = NULL;
 	piles->a = lst_new(NULL);
 	x = 1;
 	piles->a->data = ft_atoi(args[x]);
