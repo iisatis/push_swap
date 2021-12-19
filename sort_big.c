@@ -6,7 +6,7 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 07:34:02 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/19 18:24:48 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/19 19:10:56 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ static void	push_b(t_env *piles)
 {
 	t_pile	*temp;
 
+	while (piles->a->prev)
+		piles->a = piles->a->prev;
 	temp = piles->a->next;
 	piles->a->next = piles->b;
 	piles->b = piles->a;
@@ -24,7 +26,7 @@ static void	push_b(t_env *piles)
 	return;
 }
 
-static void	push_up_a(t_env piles)
+static void	push_up_a(t_env *piles)
 {
 	t_pile	*temp;
 
@@ -41,7 +43,7 @@ static void	push_up_a(t_env piles)
 	return;
 }
 
-static void	push_down_a(t_env piles)
+static void	push_down_a(t_env *piles)
 {
 	t_pile	*temp;
 
@@ -79,23 +81,25 @@ static void	rotate_pile_a(t_env *piles, int pos)
 
 t_cmd	*sort_big(t_env *piles, int argc)
 {
-	int 	pos;
-	int		stack;
+	int pos;
+	int	stack;
+	int	size;
 
 	stack = 1;
-	pos = up_or_down(stack, stack + 20, piles);
-	while (argc > 0)
+	pos = up_or_down(stack, stack + 20, piles->a);
+	while (size > 0)
 	{
-		while (pos && argc > 0)
+		while (pos && size > 0)
 		{
 			rotate_pile_a(piles, pos);
 			push_b(piles);
-			argc--;
-			pos = up_or_down(stack, stack + 20, piles);
+			size--;
+			pos = up_or_down(stack, stack + 20, piles->a);
 		}
 		stack += 20;
-		pos = up_or_down(stack, stack + 20, piles);
+		pos = up_or_down(stack, stack + 20, piles->a);
 	}
+	push_back_a(piles, argc);
 	while (ops->prev)
 		ops = ops->prev;
 	return (ops);
