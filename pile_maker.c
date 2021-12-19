@@ -6,7 +6,7 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 16:57:48 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/18 07:01:15 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/19 18:00:44 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,20 +62,6 @@ static void	pos_parser(t_env *piles, int len)
 	}
 }
 
-t_pile	*lst_new(t_pile *prev)
-{
-	t_pile	*new;
-
-	new = malloc(sizeof(t_pile));
-	if (!new)
-		return (NULL);
-	new->prev = prev;
-	new->next = NULL;
-	new->data = 0;
-	new->pos = 0;
-	return (new);
-}
-
 t_env	*pile_filler(char **args, int argc)
 {
 	t_env	*piles;
@@ -84,7 +70,7 @@ t_env	*pile_filler(char **args, int argc)
 	piles = malloc(sizeof(t_env));
 	if (!piles)
 		return (NULL);
-	piles->b = lst_new(NULL);
+	piles->b = NULL;
 	piles->ops = NULL;
 	piles->a = lst_new(NULL);
 	x = 1;

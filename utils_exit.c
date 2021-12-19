@@ -6,7 +6,7 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 07:27:21 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/18 07:29:17 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/19 16:26:59 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,10 @@ void	clear_piles(t_env *piles)
 
 	free(piles->b);
 	if (piles->opr);
+	{
+		////// free the cmds
 		free(piles->opr);
+	}
 	while (piles->a->prev)
 		piles->a = piles->a->prev;
 	while (piles->a->next)
