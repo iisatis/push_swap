@@ -57,7 +57,6 @@ int	up_or_down(int min, int max, t_pile *pile)
 
 	top = get_top(min, max, pile);
 	bot = get_bot(min, max, pile);
-	printf("\n   from top = %d	     from bot = %d \n\n", top, bot);
 	while (pile->prev)
 		pile = pile->prev;
 	if (!top || !bot)

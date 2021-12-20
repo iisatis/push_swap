@@ -18,10 +18,17 @@ static void	push_b(t_env *piles)
 
 	while (piles->a->prev)
 		piles->a = piles->a->prev;
+	if (piles->b)
+		while (piles->b->prev)
+			piles->b = piles->b->prev;
 	temp = piles->a->next;
 	piles->a->next = piles->b;
+	if(piles->b)
+		piles->b->prev = piles->a;
 	piles->b = piles->a;
 	piles->a = temp;
+	if (piles->a)
+		piles->a->prev = NULL;
 	new_op(piles, 2);
 	return;
 }
@@ -79,14 +86,16 @@ static void	rotate_pile_a(t_env *piles, int pos)
 	return;
 }
 
-t_cmd	*sort_big(t_env *piles, int argc)
+t_cmd	*sort_big(t_env *piles, int argc, int cut)
 {
 	int pos;
 	int	stack;
 	int	size;
-
+	
+	cut = argc / cut;
+	size = argc;
 	stack = 1;
-	pos = up_or_down(stack, stack + 20, piles->a);
+	pos = up_or_down(stack, (stack + cut), piles->a);
 	while (size > 0)
 	{
 		while (pos && size > 0)
@@ -94,13 +103,15 @@ t_cmd	*sort_big(t_env *piles, int argc)
 			rotate_pile_a(piles, pos);
 			push_b(piles);
 			size--;
-			pos = up_or_down(stack, stack + 20, piles->a);
+			if (size > 0)
+				pos = up_or_down(stack, (stack + cut), piles->a);
 		}
-		stack += 20;
-		pos = up_or_down(stack, stack + 20, piles->a);
+		stack += cut;
+		if (size > 0)
+			pos = up_or_down(stack, (stack + cut), piles->a);
 	}
 	push_back_a(piles, argc);
-	while (ops->prev)
-		ops = ops->prev;
-	return (ops);
+	while (piles->ops->prev)
+		piles->ops = piles->ops->prev;
+	return (piles->ops);
 }

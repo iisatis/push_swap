@@ -33,12 +33,20 @@ void	clear_one_pile(t_pile *pile)
 void	clear_piles(t_env *piles)
 {
 	t_pile	*temp;
+	t_cmd	*temp2;
 
 	free(piles->b);
-	if (piles->opr);
+	if (piles->ops)
 	{
-		////// free the cmds
-		free(piles->opr);
+		while (piles->ops->prev)
+			piles->ops = piles->ops->prev;	
+		while (piles->ops->next)
+		{
+			temp2 = piles->ops->next;
+			free(piles->ops);
+			piles->ops = temp2;
+		}
+		free(piles->ops);
 	}
 	while (piles->a->prev)
 		piles->a = piles->a->prev;

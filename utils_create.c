@@ -10,17 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "./includes/push_swap.h"
+
 t_cmd	*lst_new2(t_cmd *prev)
 {
 	t_cmd	*new;
-	char	*cmd;
 
 	new = malloc(sizeof(t_cmd));
 	if (!new)
 		return (NULL);
 	new->prev = prev;
 	new->next = NULL;
-	new->cmd = NULL;
+	new->cmd = 0;
 	return (new);
 }
 

@@ -52,7 +52,7 @@ void	printer (char *str);
 void	err_display (int value);
 int		up_or_down(int min, int max, t_pile *pile);
 t_cmd	*sort_small (t_env *piles, int argc);
-t_cmd	*sort_big (t_env *piles, int argc);
+t_cmd	*sort_big (t_env *piles, int argc, int cut);
 void	push_back_a(t_env *piles, int size);
 
 #endif

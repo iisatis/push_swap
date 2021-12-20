@@ -12,16 +12,23 @@
 
 #include "./includes/push_swap.h"
 
-static void	push_a(t_env *piles);
+static void	push_a(t_env *piles)
 {
 	t_pile	*temp;
 
+	if (piles->a)
+		while (piles->a->prev)
+			piles->a = piles->a->prev;
 	while (piles->b->prev)
 		piles->b = piles->b->prev;
 	temp = piles->b->next;
 	piles->b->next = piles->a;
+	if(piles->a)
+		piles->a->prev = piles->b;
 	piles->a = piles->b;
 	piles->b = temp;
+	if (piles->b)
+		piles->b->prev = NULL;
 	new_op(piles, 1);
 	return;
 }
@@ -86,14 +93,11 @@ void	push_back_a(t_env *piles, int size)
 	pos = up_or_down(size, size, piles->b);
 	while (piles->b)
 	{
-		while (pos && piles->b)
-		{
-			rotate_pile_b(piles, pos);
-			push_a(piles);
-			pos = up_or_down(size, size, piles->b);
-		}
+		rotate_pile_b(piles, pos);
+		push_a(piles);
 		size--;
-		pos = up_or_down(size, size, piles->b);
+		if (size > 0)
+			pos = up_or_down(size, size, piles->b);
 	}
 	return;
 }
