@@ -6,7 +6,7 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 18:01:17 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/18 07:49:02 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/21 18:06:38 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ static void	test_printer2(t_env *piles)
 	printf("	%d	||	%d\n", piles->b->pos, piles->b->data);
 	while (piles->b->prev)
 		piles->b = piles->b->prev;
-}
+}*/
 
 static void	test_printer(t_env *piles)
 {
@@ -77,11 +77,11 @@ static void	test_printer(t_env *piles)
 		printf("	%d	||	%d\n", piles->a->pos, piles->a->data);
 		piles->a = piles->a->next;
 	}
-	printf("	%d	||	%d\n", piles->a->pos, piles->a->data);
+	printf("	%d	||	%d\n\n", piles->a->pos, piles->a->data);
 	while (piles->a->prev)
 		piles->a = piles->a->prev;
 	return;
-}*/
+}
 
 static void	print_op(t_env *piles)
 {
@@ -104,6 +104,8 @@ static void	print_op(t_env *piles)
 			printf("rra\n");
 		else if (piles->ops->cmd == 7)
 			printf("rrb\n");
+		else if (piles->ops->cmd == 9)
+			printf("sa\n");
 		piles->ops = piles->ops->next;
 	}
 	piles->ops = temp;
@@ -117,36 +119,28 @@ int	main(int argc, char *argv[])
 	check_args(argc, argv);
 	piles = pile_filler (argv, argc);
 	is_sorted(piles);
-	while (piles->a->prev)
-		piles->a = piles->a->prev;
-/*	printf("%d\n", up_or_down(4, 4, piles->a));
 	test_printer(piles);
-
-	push_b(piles);
-	push_b(piles);
-
-	printf("%d\n", up_or_down(4, 4, piles->a));
-	test_printer2(piles);
-
-	push_a(piles);
-	push_a(piles);
-*/
-
-
-	/*if (argc < "IDK YET")
-		piles->ops = sort_small(piles, argc - 1);
-	if (argc > ??)
-		piles->ops = sort_big(piles, argc - 1, 4);	
+	while (piles->a->prev)
+		piles->a = piles->a->prev;
 	if (argc > 120)
-		piles->ops = sort_big(piles, argc - 1, 12);*/
+		sort_big(piles, argc - 1, 12);
+	else if (argc > 7)
+		sort_big(piles, argc - 1, 4);	
+	else if (argc > 3)
+		sort_small(piles, (argc - 1));
+	else if (argc == 3)
+		sort_two(piles);
 
-	piles->ops = sort_big(piles, argc - 1, 4);
 
 	while (piles->a->prev)
 		piles->a = piles->a->prev;
-/*	printf("%d\n", up_or_down(4, 4, piles->a));
-	test_printer(piles);*/
+	test_printer(piles);
 	print_op(piles);
 	clear_piles (piles);
 	return (0);
 }
+
+
+/*
+IF DOES NOT WORK ANYMORE: RM VOID, PUT T_CMD!
+*/

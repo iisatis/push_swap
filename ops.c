@@ -6,11 +6,29 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 15:21:09 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/21 15:25:10 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/21 18:23:10 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/push_swap.h"
+
+void	switch_a(t_env *piles)
+{
+	t_pile	*temp;
+
+	while (piles->a->prev)
+		piles->a = piles->a->prev;
+	temp = piles->a;
+	piles->a = piles->a->next;
+	piles->a->prev = NULL;
+	temp->next = piles->a->next;
+	temp->prev = piles->a;
+	if (piles->a->next)
+		piles->a->next->prev = temp;
+	piles->a->next = temp;
+	new_op(piles, 9);
+	return;
+}
 
 void	push_b(t_env *piles)
 {

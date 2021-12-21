@@ -6,7 +6,7 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 07:40:12 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/18 07:46:59 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/21 16:32:37 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ void	check_args(int argc, char *argv[])
 
 	x = 1;
 	buff = 1;
-	if (argc == 1)
+	if (argc <= 2)
 		exit(0);
 	while (--argc)
 	{

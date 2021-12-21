@@ -6,7 +6,7 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 07:34:02 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/21 15:25:10 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/21 16:32:37 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ static void	rotate_pile_a(t_env *piles, int pos)
 	return;
 }
 
-t_cmd	*sort_big(t_env *piles, int argc, int cut)
+void	sort_big(t_env *piles, int argc, int cut)
 {
 	int pos;
 	int	stack;
@@ -89,5 +89,5 @@ t_cmd	*sort_big(t_env *piles, int argc, int cut)
 	push_back_a(piles, argc);
 	while (piles->ops->prev)
 		piles->ops = piles->ops->prev;
-	return (piles->ops);
+	return;
 }
