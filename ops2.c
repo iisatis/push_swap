@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_big2.c                                        :+:      :+:    :+:   */
+/*   ops2.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/19 18:32:47 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/19 19:10:56 by pflorent         ###   ########.fr       */
+/*   Created: 2021/12/21 15:22:51 by pflorent          #+#    #+#             */
+/*   Updated: 2021/12/21 15:25:10 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/push_swap.h"
 
-static void	push_a(t_env *piles)
+void	push_a(t_env *piles)
 {
 	t_pile	*temp;
 
@@ -33,7 +33,7 @@ static void	push_a(t_env *piles)
 	return;
 }
 
-static void	push_up_b(t_env *piles)
+void	push_up_b(t_env *piles)
 {
 	t_pile	*temp;
 
@@ -47,10 +47,11 @@ static void	push_up_b(t_env *piles)
 		piles->b = piles->b->next;
 	temp->prev = piles->b;
 	piles->b->next = temp;
+	new_op(piles, 4);
 	return;
 }
 
-static void	push_down_b(t_env *piles)
+void	push_down_b(t_env *piles)
 {
 	t_pile	*temp;
 
@@ -64,40 +65,6 @@ static void	push_down_b(t_env *piles)
 		piles->b = piles->b->prev;
 	temp->next = piles->b;
 	piles->b->prev = temp;
-	return;
-}
-
-static void	rotate_pile_b(t_env *piles, int pos)
-{
-	if (pos > 0)
-		while (pos > 1)
-		{
-			push_up_b(piles);
-			new_op(piles, 4);
-			pos--;
-		}
-	else
-		while (pos < 0)
-		{
-			push_down_b(piles);
-			new_op(piles, 7);
-			pos++;
-		}
-	return;
-}
-
-void	push_back_a(t_env *piles, int size)
-{
-	int 	pos;
-
-	pos = up_or_down(size, size, piles->b);
-	while (piles->b)
-	{
-		rotate_pile_b(piles, pos);
-		push_a(piles);
-		size--;
-		if (size > 0)
-			pos = up_or_down(size, size, piles->b);
-	}
+	new_op(piles, 7);
 	return;
 }

@@ -6,64 +6,42 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 07:34:02 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/19 19:10:56 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/21 15:25:10 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/push_swap.h"
 
-static void	push_b(t_env *piles)
+static void	rotate_pile_b(t_env *piles, int pos)
 {
-	t_pile	*temp;
-
-	while (piles->a->prev)
-		piles->a = piles->a->prev;
-	if (piles->b)
-		while (piles->b->prev)
-			piles->b = piles->b->prev;
-	temp = piles->a->next;
-	piles->a->next = piles->b;
-	if(piles->b)
-		piles->b->prev = piles->a;
-	piles->b = piles->a;
-	piles->a = temp;
-	if (piles->a)
-		piles->a->prev = NULL;
-	new_op(piles, 2);
+	if (pos > 0)
+		while (pos > 1)
+		{
+			push_up_b(piles);
+			pos--;
+		}
+	else
+		while (pos < 0)
+		{
+			push_down_b(piles);
+			pos++;
+		}
 	return;
 }
 
-static void	push_up_a(t_env *piles)
+static void	push_back_a(t_env *piles, int size)
 {
-	t_pile	*temp;
+	int 	pos;
 
-	while (piles->a->prev)
-		piles->a = piles->a->prev;
-	temp = piles->a;
-	piles->a = piles->a->next;
-	piles->a->prev = NULL;
-	temp->next = NULL;
-	while (piles->a->next)
-		piles->a = piles->a->next;
-	temp->prev = piles->a;
-	piles->a->next = temp;
-	return;
-}
-
-static void	push_down_a(t_env *piles)
-{
-	t_pile	*temp;
-
-	while (piles->a->next)
-		piles->a = piles->a->next;
-	temp = piles->a;
-	piles->a = piles->a->prev;
-	piles->a->next = NULL;
-	temp->prev = NULL;
-	while (piles->a->prev)
-		piles->a = piles->a->prev;
-	temp->next = piles->a;
-	piles->a->prev = temp;
+	pos = up_or_down(size, size, piles->b);
+	while (piles->b)
+	{
+		rotate_pile_b(piles, pos);
+		push_a(piles);
+		size--;
+		if (size > 0)
+			pos = up_or_down(size, size, piles->b);
+	}
 	return;
 }
 
@@ -73,14 +51,12 @@ static void	rotate_pile_a(t_env *piles, int pos)
 		while (pos > 1)
 		{
 			push_up_a(piles);
-			new_op(piles, 3);
 			pos--;
 		}
 	else
 		while (pos < 0)
 		{
 			push_down_a(piles);
-			new_op(piles, 6);
 			pos++;
 		}
 	return;

@@ -6,29 +6,11 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 07:27:21 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/19 16:26:59 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/21 15:30:01 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/push_swap.h"
-
-void	clear_one_pile(t_pile *pile)
-{
-	t_pile	*prev;
-	t_pile	*next;
-
-	next = pile->next;
-	prev = pile->prev;
-	if (next)
-		pile->next->prev = prev;
-	if (prev)
-		pile->prev->next = next;
-	free(pile);
-	if (prev)
-		pile = prev;
-	else
-		pile = next;
-}
 
 void	clear_piles(t_env *piles)
 {
