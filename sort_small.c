@@ -6,7 +6,7 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 07:37:00 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/21 18:21:01 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/21 18:58:30 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,18 +30,18 @@ static void sort_three(t_env *piles)
 	f = piles->a->pos;
 	s = piles->a->next->pos;
 	t = piles->a->next->next->pos;
-	if (f > s && s < t && t > f) //case 1
+	if (f > s && s < t && t > f)
 		switch_a(piles);
-	else if (f > s && s < t && t < f) // case 3
+	else if (f > s && s < t && t < f)
 		push_up_a(piles);
-	else if (f < s && s > t && t < f) // case 5
+	else if (f < s && s > t && t < f)
 		push_down_a(piles);
-	else if (f > s && s > t && t < f) // case 2
+	else if (f > s && s > t && t < f)
 	{
 		switch_a(piles);
 		push_down_a(piles);
 	}
-	else if (f < s && s > t && t > f) // case 4
+	else if (f < s && s > t && t > f)
 	{
 		switch_a(piles);
 		push_up_a(piles);
@@ -51,14 +51,20 @@ static void sort_three(t_env *piles)
 
 static void	rotate_pile_a2(t_env *piles, int pos)
 {
-	while (pos)
+	while (pos != 0)
 	{
 		if (pos > 0)
+		{
 			push_up_a(piles);
+			pos--;
+		}
 		else if (pos < 0)
+		{
 			push_down_a(piles);
-		pos--;
+			pos++;
+		}
 	}
+	return ;
 }
 
 static int	check_pos(t_env *piles)
@@ -103,5 +109,7 @@ void	sort_small (t_env *piles, int argc)
 		rotate_pile_a2(piles, pos);
 		push_a(piles);
 	}
-	return;
+	pos = up_or_down(1, 1, piles->a);
+	rotate_pile_a2(piles, pos);
+	return ;
 }

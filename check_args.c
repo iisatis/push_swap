@@ -6,7 +6,7 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 07:40:12 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/21 16:32:37 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/21 18:30:42 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	is_sorted(t_env *piles)
 	{
 		piles->a = piles->a->next;
 		if (buff > piles->a->pos)
-			return;
+			return ;
 		buff = piles->a->pos;
 	}
 	clear_piles (piles);
@@ -39,7 +39,7 @@ static void	ft_strxcmp(const char *s1, const char *s2)
 		x++;
 	if (!s1[x] && !s2[x])
 		err_display(1);
-	return;
+	return ;
 }
 
 static void	is_int(char *arg)
@@ -64,9 +64,9 @@ static void	is_int(char *arg)
 		x++;
 	}
 	n *= np;
-	if (n < -2147483648 || n > 2147483647 )
+	if (n < -2147483648 || n > 2147483647)
 		err_display(1);
-	return;
+	return ;
 }
 
 static void	is_num(char *arg)
@@ -85,7 +85,7 @@ static void	is_num(char *arg)
 		x++;
 	}
 	is_int(arg);
-	return;
+	return ;
 }
 
 void	check_args(int argc, char *argv[])
@@ -103,9 +103,9 @@ void	check_args(int argc, char *argv[])
 		x = buff;
 		temp = argv[buff];
 		is_num(temp);
-			while (argv[++x])
-				ft_strxcmp((const char*)temp, (const char*)argv[x]);
+		while (argv[++x])
+			ft_strxcmp((const char *)temp, (const char *)argv[x]);
 		buff++;
 	}
-	return;
+	return ;
 }
