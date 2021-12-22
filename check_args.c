@@ -6,7 +6,7 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 07:40:12 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/21 18:30:42 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/22 15:05:09 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,24 @@ static void	ft_strxcmp(const char *s1, const char *s2)
 	size_t	x;
 
 	x = 0;
+	if (s1[0] == '-' || s1[0] == '+')
+		s1++;
+	if (s2[0] == '-' || s2[0] == '+')
+		s2++;
+	if (s1[0] == '0')
+	{
+		while (s1[0] == '0')
+			s1++;
+		if (!s1[0])
+			s1--;
+	}
+	if (s2[0] == '0')
+	{
+		while (s2[0] == '0')
+			s2++;
+		if (!s2[0])
+			s2--;
+	}
 	while (s1[x] && s2[x] && ((unsigned char)s1[x] == (unsigned char)s2[x]))
 		x++;
 	if (!s1[x] && !s2[x])
@@ -74,7 +92,7 @@ static void	is_num(char *arg)
 	unsigned int	x;
 
 	x = 0;
-	if (arg[0] == '-')
+	if (arg[0] == '-' || arg[0] == '+')
 		x++;
 	if (!arg[x])
 		err_display(1);
