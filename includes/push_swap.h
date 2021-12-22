@@ -6,7 +6,7 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 16:12:40 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/22 15:26:14 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/22 17:44:56 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ typedef struct s_env
 	struct s_cmd	*ops;
 }					t_env;
 
-void	check_args(int argc, char *argv[]);
+void	check_args(char **argv, int argc);
 void	is_sorted(t_env *piles);
 t_pile	*lst_new(t_pile *prev);
 t_cmd	*lst_new2(t_cmd *prev);

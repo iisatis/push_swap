@@ -6,7 +6,7 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 18:01:17 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/22 17:32:51 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/22 18:02:44 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,22 +54,37 @@ static void	print_op(t_env *piles)
 	piles->ops = temp;
 }
 
-int	main(int argc, char *argv[])
+static char	**arg_splitter(char **argv, int argc)
+{
+	char	**args;
+
+	if (argc == 2
+	return (args);
+}
+
+int	main(int argc, char **argv)
 {
 	t_env	*piles;
+	char	**args;
 
-	check_args(argc, argv);
-	piles = pile_filler (argv, argc);
+	
+	args = arg_splitter(++argv, argc);
+	argc = // check argc now
+
+
+
+	check_args(argc, args);
+	piles = pile_filler (args, argc);
 	is_sorted(piles);
 	while (piles->a->prev)
 		piles->a = piles->a->prev;
 	if (argc > 120)
-		sort_big(piles, argc - 1, 12);
-	else if (argc > 7)
-		sort_big(piles, argc - 1, 4);
-	else if (argc > 3)
-		sort_small(piles, (argc - 1));
-	else if (argc == 3)
+		sort_big(piles, argc, 12);
+	else if (argc > 6)
+		sort_big(piles, argc, 4);
+	else if (argc > 2)
+		sort_small(piles, (argc));
+	else if (argc == 2)
 		sort_two(piles);
 	print_op(piles);
 	clear_piles (piles);

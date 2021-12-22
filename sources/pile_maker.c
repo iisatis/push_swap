@@ -6,7 +6,7 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 16:57:48 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/22 17:32:51 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/22 17:48:07 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static void	pos_parser(t_env *piles, int len)
 {
 	int	buff;
 
-	while (len > 0)
+	while (len >= 0)
 	{
 		buff = -2147483648;
 		while (piles->a->next)
@@ -73,7 +73,7 @@ t_env	*pile_filler(char **args, int argc)
 	piles->b = NULL;
 	piles->ops = NULL;
 	piles->a = lst_new(NULL);
-	x = 1;
+	x = 0;
 	piles->a->data = ft_atoi(args[x]);
 	while (++x < argc)
 	{
