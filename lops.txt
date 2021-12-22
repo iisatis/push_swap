@@ -30,4 +30,8 @@ rien s’il n’y en a qu’un ou aucun.
 
 11 ss : sa et sb en même temps.
 
+
+
+gcc -Wall -Wextra -Werror -fsanitize=address check_args.c includes/push_swap.h main.c ops.c ops2.c pile_maker.c sort_big.c sort_small.c up_down.c utils_create.c utils_exit.c
+
 */

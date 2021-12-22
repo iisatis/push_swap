@@ -6,7 +6,7 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 07:37:00 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/22 15:33:01 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/22 17:09:57 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,9 @@ static void	sort_three(t_env *piles)
 
 static void	rotate_pile_a2(t_env *piles, int pos)
 {
-	while (pos != 0)
+	while (pos != 0 && pos != 1)
 	{
-		if (pos > 0)
+		if (pos > 1)
 		{
 			push_up_a(piles);
 			pos--;

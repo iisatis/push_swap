@@ -6,7 +6,7 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 07:27:21 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/22 15:39:12 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/22 16:27:39 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,21 @@
 
 static void	clear_ops(t_env *piles)
 {
+	t_cmd	*temp;
+
 	while (piles->ops->next)
 	{
-		temp2 = piles->ops->next;
+		temp = piles->ops->next;
 		free(piles->ops);
-		piles->ops = temp2;
+		piles->ops = temp;
 	}
 	free(piles->ops);
 }
 
 static void	clear_a(t_env *piles)
 {
+	t_pile	*temp;
+
 	while (piles->a->next)
 	{
 		temp = piles->a->next;
@@ -36,9 +40,6 @@ static void	clear_a(t_env *piles)
 
 void	clear_piles(t_env *piles)
 {
-	t_pile	*temp;
-	t_cmd	*temp2;
-
 	free(piles->b);
 	if (piles->ops)
 	{
