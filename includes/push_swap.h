@@ -6,7 +6,7 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 16:12:40 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/21 17:49:00 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/22 15:25:25 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,38 +62,3 @@ void	push_up_b(t_env *piles);
 void	push_down_b(t_env *piles);
 
 #endif
-
-
-/*
-
-1 pa : push a - prend le premier élément au sommet de b et le met sur a. Ne fait
-rien si b est vide.
-
-2 pb : push b - prend le premier élément au sommet de a et le met sur b. Ne fait
-rien si a est vide.
-
-3 ra : rotate a - décale d’une position vers le haut tous les élements de la pile a.
-Le premier élément devient le dernier.
-
-4 rb : rotate b - décale d’une position vers le haut tous les élements de la pile b.
-Le premier élément devient le dernier.
-
-5 rr : ra et rb en même temps.
-
-6 rra : reverse rotate a - décale d’une position vers le bas tous les élements de
-la pile a. Le dernier élément devient le premier.
-
-7 rrb : reverse rotate b - décale d’une position vers le bas tous les élements de
-la pile b. Le dernier élément devient le premier.
-
-8 rrr : rra et rrb en même temps.
-
-9 sa : swap a - intervertit les 2 premiers éléments au sommet de la pile a. Ne fait
-rien s’il n’y en a qu’un ou aucun.
-
-10 sb : swap b - intervertit les 2 premiers éléments au sommet de la pile b. Ne fait
-rien s’il n’y en a qu’un ou aucun.
-
-11 ss : sa et sb en même temps.
-
-*/
