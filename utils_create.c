@@ -6,7 +6,7 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 17:59:36 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/21 18:39:07 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/22 15:10:55 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,4 @@ void	new_op(t_env *piles, int value)
 		piles->ops = piles->ops->next;
 	}
 	piles->ops->cmd = value;
-	return;
 }

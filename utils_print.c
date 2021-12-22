@@ -6,7 +6,7 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 07:27:40 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/18 07:29:17 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/22 15:10:55 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 static void	printer2(char c)
 {
 	write(1, &c, 1);
-	return;
 }
 
 void	printer (char *str)
@@ -25,5 +24,4 @@ void	printer (char *str)
 	count = 0;
 	while (str[count])
 		printer2(str[count++]);
-	return;
 }

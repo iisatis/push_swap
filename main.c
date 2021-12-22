@@ -6,11 +6,25 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 18:01:17 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/21 18:38:42 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/22 15:22:05 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/push_swap.h"
+
+static void	printer2(char c)
+{
+	write(1, &c, 1);
+}
+
+void	printer (char *str)
+{
+	int	count;
+
+	count = 0;
+	while (str[count])
+		printer2(str[count++]);
+}
 
 static void	print_op(t_env *piles)
 {
@@ -22,23 +36,22 @@ static void	print_op(t_env *piles)
 	while (piles->ops)
 	{
 		if (piles->ops->cmd == 1)
-			printf("pa\n");
+			printer("pa\n");
 		else if (piles->ops->cmd == 2)
-			printf("pb\n");
+			printer("pb\n");
 		else if (piles->ops->cmd == 3)
-			printf("ra\n");
+			printer("ra\n");
 		else if (piles->ops->cmd == 4)
-			printf("rb\n");
+			printer("rb\n");
 		else if (piles->ops->cmd == 6)
-			printf("rra\n");
+			printer("rra\n");
 		else if (piles->ops->cmd == 7)
-			printf("rrb\n");
+			printer("rrb\n");
 		else if (piles->ops->cmd == 9)
-			printf("sa\n");
+			printer("sa\n");
 		piles->ops = piles->ops->next;
 	}
 	piles->ops = temp;
-	return;
 }
 
 int	main(int argc, char *argv[])

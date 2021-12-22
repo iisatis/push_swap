@@ -6,7 +6,7 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 15:22:51 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/21 15:25:10 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/22 15:10:55 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void	push_a(t_env *piles)
 	if (piles->b)
 		piles->b->prev = NULL;
 	new_op(piles, 1);
-	return;
 }
 
 void	push_up_b(t_env *piles)
@@ -48,7 +47,6 @@ void	push_up_b(t_env *piles)
 	temp->prev = piles->b;
 	piles->b->next = temp;
 	new_op(piles, 4);
-	return;
 }
 
 void	push_down_b(t_env *piles)
@@ -66,5 +64,4 @@ void	push_down_b(t_env *piles)
 	temp->next = piles->b;
 	piles->b->prev = temp;
 	new_op(piles, 7);
-	return;
 }

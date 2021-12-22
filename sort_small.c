@@ -6,7 +6,7 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 07:37:00 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/21 18:58:30 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/22 15:10:55 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	sort_two(t_env *piles)
 			piles->a = piles->a->prev;
 	if (piles->a->pos > piles->a->next->pos)
 		switch_a(piles);
-	return;
 }
 
 static void sort_three(t_env *piles)
@@ -46,7 +45,6 @@ static void sort_three(t_env *piles)
 		switch_a(piles);
 		push_up_a(piles);
 	}
-	return;
 }
 
 static void	rotate_pile_a2(t_env *piles, int pos)
@@ -64,7 +62,6 @@ static void	rotate_pile_a2(t_env *piles, int pos)
 			pos++;
 		}
 	}
-	return ;
 }
 
 static int	check_pos(t_env *piles)
@@ -111,5 +108,4 @@ void	sort_small (t_env *piles, int argc)
 	}
 	pos = up_or_down(1, 1, piles->a);
 	rotate_pile_a2(piles, pos);
-	return ;
 }

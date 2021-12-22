@@ -6,7 +6,7 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 07:40:12 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/22 15:05:09 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/22 15:08:50 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ static void	ft_strxcmp(const char *s1, const char *s2)
 		x++;
 	if (!s1[x] && !s2[x])
 		err_display(1);
-	return ;
 }
 
 static void	is_int(char *arg)
@@ -84,7 +83,6 @@ static void	is_int(char *arg)
 	n *= np;
 	if (n < -2147483648 || n > 2147483647)
 		err_display(1);
-	return ;
 }
 
 static void	is_num(char *arg)
@@ -103,7 +101,6 @@ static void	is_num(char *arg)
 		x++;
 	}
 	is_int(arg);
-	return ;
 }
 
 void	check_args(int argc, char *argv[])
@@ -125,5 +122,4 @@ void	check_args(int argc, char *argv[])
 			ft_strxcmp((const char *)temp, (const char *)argv[x]);
 		buff++;
 	}
-	return ;
 }
