@@ -6,11 +6,11 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 17:59:36 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/22 15:10:55 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/22 17:32:51 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/push_swap.h"
+#include "../includes/push_swap.h"
 
 t_cmd	*lst_new2(t_cmd *prev)
 {

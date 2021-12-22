@@ -6,11 +6,11 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 06:24:17 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/22 15:33:32 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/22 17:32:51 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/push_swap.h"
+#include "../includes/push_swap.h"
 
 static int	get_top(int min, int max, t_pile *pile)
 {

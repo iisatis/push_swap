@@ -6,11 +6,11 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 07:27:21 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/22 16:27:39 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/22 17:32:51 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/push_swap.h"
+#include "../includes/push_swap.h"
 
 static void	clear_ops(t_env *piles)
 {
