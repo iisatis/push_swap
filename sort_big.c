@@ -6,7 +6,7 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 07:34:02 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/22 15:10:55 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/22 15:32:02 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,26 @@
 static void	rotate_pile_b(t_env *piles, int pos)
 {
 	if (pos > 0)
+	{
 		while (pos > 1)
 		{
 			push_up_b(piles);
 			pos--;
 		}
+	}
 	else
+	{
 		while (pos < 0)
 		{
 			push_down_b(piles);
 			pos++;
 		}
+	}
 }
 
 static void	push_back_a(t_env *piles, int size)
 {
-	int 	pos;
+	int	pos;
 
 	pos = up_or_down(size, size, piles->b);
 	while (piles->b)
@@ -46,25 +50,29 @@ static void	push_back_a(t_env *piles, int size)
 static void	rotate_pile_a(t_env *piles, int pos)
 {
 	if (pos > 0)
+	{
 		while (pos > 1)
 		{
 			push_up_a(piles);
 			pos--;
 		}
+	}
 	else
+	{
 		while (pos < 0)
 		{
 			push_down_a(piles);
 			pos++;
 		}
+	}
 }
 
 void	sort_big(t_env *piles, int argc, int cut)
 {
-	int pos;
+	int	pos;
 	int	stack;
 	int	size;
-	
+
 	cut = argc / cut;
 	size = argc;
 	stack = 1;

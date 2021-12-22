@@ -6,7 +6,7 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 18:01:17 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/22 15:22:05 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/22 15:27:38 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	printer2(char c)
 	write(1, &c, 1);
 }
 
-void	printer (char *str)
+void	printer(char *str)
 {
 	int	count;
 
@@ -66,7 +66,7 @@ int	main(int argc, char *argv[])
 	if (argc > 120)
 		sort_big(piles, argc - 1, 12);
 	else if (argc > 7)
-		sort_big(piles, argc - 1, 4);	
+		sort_big(piles, argc - 1, 4);
 	else if (argc > 3)
 		sort_small(piles, (argc - 1));
 	else if (argc == 3)

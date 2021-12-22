@@ -6,7 +6,7 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 07:37:00 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/22 15:10:55 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/22 15:33:01 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 void	sort_two(t_env *piles)
 {
-		while (piles->a->prev)
-			piles->a = piles->a->prev;
+	while (piles->a->prev)
+		piles->a = piles->a->prev;
 	if (piles->a->pos > piles->a->next->pos)
 		switch_a(piles);
 }
 
-static void sort_three(t_env *piles)
+static void	sort_three(t_env *piles)
 {
 	int	f;
 	int	s;
@@ -90,11 +90,11 @@ static int	check_pos(t_env *piles)
 	return (-pos_down);
 }
 
-void	sort_small (t_env *piles, int argc)
+void	sort_small(t_env *piles, int argc)
 {
 	int	pos;
 
-	while(argc > 3)
+	while (argc > 3)
 	{
 		push_b(piles);
 		argc--;

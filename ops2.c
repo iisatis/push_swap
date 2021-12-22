@@ -6,7 +6,7 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 15:22:51 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/22 15:10:55 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/22 15:29:02 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	push_a(t_env *piles)
 		piles->b = piles->b->prev;
 	temp = piles->b->next;
 	piles->b->next = piles->a;
-	if(piles->a)
+	if (piles->a)
 		piles->a->prev = piles->b;
 	piles->a = piles->b;
 	piles->b = temp;
