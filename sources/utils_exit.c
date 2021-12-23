@@ -6,7 +6,7 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 07:27:21 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/22 17:32:51 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/23 16:03:59 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,19 @@ static void	clear_a(t_env *piles)
 		piles->a = temp;
 	}
 	free(piles->a);
+}
+
+void	clear_args(char **to_free)
+{
+	int	x;
+
+	x = 0;
+	while (to_free[x])
+	{
+		free(to_free[x]);
+		x++;
+	}
+	free(to_free);
 }
 
 void	clear_piles(t_env *piles)

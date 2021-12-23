@@ -6,13 +6,13 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 17:19:19 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/22 18:02:44 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/23 16:43:23 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static size_t	word_len(const char *s, char sep)
+size_t	ft_len(const char *s, char sep)
 {
 	int	i;
 
@@ -36,7 +36,7 @@ static size_t	words_count(char const *s, char sep)
 		if (s[i])
 		{
 			count++;
-			i += word_len(&s[i], sep);
+			i += ft_len(&s[i], sep);
 		}
 	}
 	return (count);
@@ -69,10 +69,10 @@ static char	**full_filler(size_t count, char **dest, char const *s, char c)
 	{
 		while (*s && *s == (const char)c)
 			s++;
-		dest[n] = filler(s, word_len(s, c));
+		dest[n] = filler(s, ft_len(s, c));
 		if (!dest[n])
 		{
-			clear(dest);
+			clear_args(dest);
 			return (NULL);
 		}
 		while (*s && *s != (const char)c)

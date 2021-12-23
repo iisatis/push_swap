@@ -6,7 +6,7 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 07:40:12 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/22 17:48:07 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/23 17:43:07 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,15 +111,23 @@ void	check_args(char **argv, int argc)
 
 	x = 1;
 	buff = 0;
-	if (argc < 2)
+	if (argc < 1)	
 		exit(0);
-	while (--argc)
+	else if (argc == 1)
 	{
-		x = buff;
-		temp = argv[buff];
+		temp = argv[0];
 		is_num(temp);
-		while (argv[++x])
-			ft_strxcmp((const char *)temp, (const char *)argv[x]);
-		buff++;
+	}
+	else
+	{
+		while (argv[buff])
+		{
+			x = buff;
+			temp = argv[buff];
+			is_num(temp);
+			while (argv[++x])
+				ft_strxcmp((const char *)temp, (const char *)argv[x]);
+			buff++;
+		}
 	}
 }

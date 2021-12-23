@@ -6,7 +6,7 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 16:57:48 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/22 17:48:07 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/23 17:38:10 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ static void	pos_parser(t_env *piles, int len)
 {
 	int	buff;
 
+	while (piles->a->prev)
+		piles->a = piles->a->prev;
 	while (len >= 0)
 	{
 		buff = -2147483648;
@@ -53,20 +55,49 @@ static void	pos_parser(t_env *piles, int len)
 		while (piles->a->prev)
 		{
 			if (piles->a->data == buff)
-				piles->a->pos = len - 1;
+				piles->a->pos = len;
 			piles->a = piles->a->prev;
 		}
 		if (piles->a->data == buff)
-			piles->a->pos = len - 1;
+			piles->a->pos = len;
 		len--;
 	}
 }
 
-t_env	*pile_filler(char **args, int argc)
+static int	arg_count(char **argv, int argc)
+{
+	int	count;
+
+	count = 0;
+	if (argc != 2)
+		count = argc - 1;
+	else
+		while (argv[count])
+			count++;
+	return (count);
+}
+
+static char	**create_args(char **argv, int argc)
+{
+	char	**args;
+
+	args = NULL;
+	if (argc > 2)
+		args = ft_dup_tab(argv, argc);
+	else if (argc == 2)
+		args = ft_split(argv[1], ' ');
+	return (args);
+}
+
+t_env	*pile_filler(char **argv, int argc)
 {
 	t_env	*piles;
+	char	**args;
 	int		x;
 
+	args = create_args(argv, argc);
+	argc = arg_count(args, argc);
+	check_args(args, argc);
 	piles = malloc(sizeof(t_env));
 	if (!piles)
 		return (NULL);
@@ -81,8 +112,7 @@ t_env	*pile_filler(char **args, int argc)
 		piles->a = piles->a->next;
 		piles->a->data = ft_atoi(args[x]);
 	}
-	while (piles->a->prev)
-		piles->a = piles->a->prev;
+	clear_args(args);
 	pos_parser(piles, argc);
 	return (piles);
 }

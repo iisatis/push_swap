@@ -6,7 +6,7 @@
 #    By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/22 15:46:55 by pflorent          #+#    #+#              #
-#    Updated: 2021/12/22 17:28:26 by pflorent         ###   ########.fr        #
+#    Updated: 2021/12/23 16:07:13 by pflorent         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ SRCS_F	= main.c\
 		sort_big.c\
 		up_down.c\
 		ops.c\
-		ops2.c
+		ops2.c\
+		ft_split.c
 
 
 SRCS	= $(addprefix $(SRCS_P), $(SRCS_F))
@@ -34,7 +35,7 @@ HEAD	= -I includes/
 
 CC		= gcc
 
-CFLAGS	= -Wall -Wextra -Werror
+CFLAGS	= -Wall -Wextra -Werror -fsanitize=address
 
 RM		= rm -f
 

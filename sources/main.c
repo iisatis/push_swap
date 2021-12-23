@@ -6,7 +6,7 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 18:01:17 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/22 18:02:44 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/23 17:50:39 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,38 +54,64 @@ static void	print_op(t_env *piles)
 	piles->ops = temp;
 }
 
-static char	**arg_splitter(char **argv, int argc)
+static int	arg_count(t_env	*piles, int argc)
 {
-	char	**args;
+	int	count;
 
-	if (argc == 2
-	return (args);
+	if (argc == 2)
+	{
+		count = 1;
+		while (piles->a->prev)
+			piles->a = piles->a->prev;
+		while (piles->a->next)
+		{
+			piles->a = piles->a->next;
+			count++;
+		}
+	}
+	else
+		count = argc - 1;
+	return (count);
 }
 
 int	main(int argc, char **argv)
 {
 	t_env	*piles;
-	char	**args;
 
-	
-	args = arg_splitter(++argv, argc);
-	argc = // check argc now
-
-
-
-	check_args(argc, args);
-	piles = pile_filler (args, argc);
+	piles = pile_filler (argv, argc);
 	is_sorted(piles);
+	argc = arg_count(piles, argc);
 	while (piles->a->prev)
 		piles->a = piles->a->prev;
+	
+	while (piles->a->next)
+	{
+		printf(" %d		|		%d\n", piles->a->data, piles->a->pos);
+		piles->a = piles->a->next;
+	}
+	printf(" %d		|		%d\n\n", piles->a->data, piles->a->pos);
+	while (piles->a->prev)
+		piles->a = piles->a->prev;
+	/**/
 	if (argc > 120)
 		sort_big(piles, argc, 12);
 	else if (argc > 6)
 		sort_big(piles, argc, 4);
 	else if (argc > 2)
-		sort_small(piles, (argc));
+		sort_small(piles, argc);
 	else if (argc == 2)
 		sort_two(piles);
+
+	while (piles->a->prev)
+		piles->a = piles->a->prev;
+	
+	while (piles->a->next)
+	{
+		printf(" %d		|		%d\n", piles->a->data, piles->a->pos);
+		piles->a = piles->a->next;
+	}
+	printf(" %d		|		%d\n\n", piles->a->data, piles->a->pos);
+	/**/
 	print_op(piles);
 	clear_piles (piles);
 	return (0);

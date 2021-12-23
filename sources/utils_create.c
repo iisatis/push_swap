@@ -6,11 +6,44 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 17:59:36 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/22 17:32:51 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/23 17:14:32 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+static char	*ft_dup_str(const char *src)
+{
+	int		x;
+	char	*dest;
+	size_t	size;
+
+	x = -1;
+	size = ft_len((char *)src, '\0');
+	dest = malloc((size + 1) * sizeof(char));
+	if (!dest)
+		return (NULL);
+	while (src[++x])
+		dest[x] = src[x];
+	dest[
+	x] = '\0';
+	return (dest);
+}
+
+char	**ft_dup_tab(char **argv, int count)
+{
+	char	**dest;
+	int		x;
+
+	x = 0;
+	dest = malloc(sizeof(char *) * (count));
+	if (!dest)
+		return (NULL);
+	while (argv[++x])
+		dest[x - 1] = ft_dup_str(argv[x]);
+	dest[x - 1] = NULL;
+	return (dest);
+}
 
 t_cmd	*lst_new2(t_cmd *prev)
 {
