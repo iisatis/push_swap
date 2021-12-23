@@ -6,7 +6,7 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 07:37:00 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/23 17:55:34 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/23 18:44:21 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,9 @@ static void	sort_three(t_env *piles)
 
 static void	rotate_pile_a2(t_env *piles, int pos)
 {
-	while (pos != 0 && pos != 1)
+	while (pos != 0)
 	{
-		if (pos > 1)
+		if (pos > 0)
 		{
 			push_up_a(piles);
 			pos--;
@@ -70,7 +70,7 @@ static int	check_pos(t_env *piles)
 	int	pos_down;
 
 	pos_up = 0;
-	pos_down = 1;
+	pos_down = 0;
 	while (piles->b->prev)
 		piles->b = piles->b->prev;
 	while (piles->a->pos < piles->b->pos && piles->a->next)
@@ -102,6 +102,8 @@ void	sort_small(t_env *piles, int argc)
 	sort_three(piles);
 	while (piles->b)
 	{
+		while (piles->a->prev)
+			piles->a = piles->a->prev;
 		pos = check_pos(piles);
 		rotate_pile_a2(piles, pos);
 		push_a(piles);
