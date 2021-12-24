@@ -6,7 +6,7 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 17:59:36 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/23 17:14:32 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/24 17:57:42 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,7 @@ static char	*ft_dup_str(const char *src)
 		return (NULL);
 	while (src[++x])
 		dest[x] = src[x];
-	dest[
-	x] = '\0';
+	dest[x] = '\0';
 	return (dest);
 }
 

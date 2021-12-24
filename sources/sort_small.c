@@ -6,7 +6,7 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 07:37:00 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/24 17:53:53 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/24 17:59:26 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	rotate_pile_a2(t_env *piles, int pos)
 
 static int	check_up(t_env *piles, int buff)
 {
-	int up;
+	int	up;
 
 	up = 0;
 	while (piles->a->prev)
@@ -67,12 +67,12 @@ static int	check_pos(t_env *piles)
 
 	while (piles->b->prev)
 		piles->b = piles->b->prev;
-	buff =  0;
+	buff = 0;
 	while (piles->a->next)
 	{
 		piles->a = piles->a->next;
-		if (piles->a->prev->pos < piles->b->pos &&
-			piles->a->pos > piles->b->pos)
+		if (piles->a->prev->pos < piles->b->pos
+			&& piles->a->pos > piles->b->pos)
 			buff = piles->a->pos;
 	}
 	if (buff == 0)
