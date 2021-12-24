@@ -6,7 +6,7 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 07:37:00 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/24 17:36:07 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/24 17:53:53 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static int	check_down(t_env *piles, int buff)
 		down++;
 		piles->a = piles->a->prev;
 	}
-	return (down);
+	return (++down);
 }
 
 static int	check_pos(t_env *piles)
@@ -67,14 +67,16 @@ static int	check_pos(t_env *piles)
 
 	while (piles->b->prev)
 		piles->b = piles->b->prev;
-	
-
-
-
-
-
-		/*		FIND FKING POS		*/
-
+	buff =  0;
+	while (piles->a->next)
+	{
+		piles->a = piles->a->next;
+		if (piles->a->prev->pos < piles->b->pos &&
+			piles->a->pos > piles->b->pos)
+			buff = piles->a->pos;
+	}
+	if (buff == 0)
+		return (0);
 	pos_up = check_up(piles, buff);
 	pos_down = check_down(piles, buff);
 	if (pos_up <= pos_down)
