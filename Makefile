@@ -6,7 +6,7 @@
 #    By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/22 15:46:55 by pflorent          #+#    #+#              #
-#    Updated: 2021/12/23 16:07:13 by pflorent         ###   ########.fr        #
+#    Updated: 2021/12/24 15:56:20 by pflorent         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ SRCS_F	= main.c\
 		pile_maker.c\
 		utils_create.c\
 		utils_exit.c\
+		sort_smaller.c\
 		sort_small.c\
 		sort_big.c\
 		up_down.c\

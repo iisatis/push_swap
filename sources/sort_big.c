@@ -6,7 +6,7 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 07:34:02 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/22 17:32:51 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/24 16:30:42 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static void	push_back_a(t_env *piles, int size)
 	}
 }
 
-static void	rotate_pile_a(t_env *piles, int pos)
+void	rotate_pile_a(t_env *piles, int pos)
 {
 	if (pos > 0)
 	{

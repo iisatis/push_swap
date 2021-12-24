@@ -6,7 +6,7 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 16:12:40 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/23 16:52:26 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/24 16:30:42 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,9 @@ void	clear_args(char **to_free);
 void	printer(char *str);
 void	err_display(int value);
 int		up_or_down(int min, int max, t_pile *pile);
+void	rotate_pile_a(t_env *piles, int pos);
 void	sort_two(t_env *piles);
+void	sort_three(t_env *piles);
 void	sort_small(t_env *piles, int argc);
 void	sort_big(t_env *piles, int argc, int cut);
 void	push_a(t_env *piles);
