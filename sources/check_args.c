@@ -6,7 +6,7 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 07:40:12 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/26 16:44:43 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/26 18:30:00 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,37 +30,6 @@ void	is_sorted(t_env *piles)
 	exit(0);
 }
 
-static void	ft_strxcmp(const char *s1, const char *s2)
-{
-	size_t	x;
-
-	x = 0;
-	if (s1[0] == '-' && s2[0] == '-')
-	{
-		s1++;
-		s2++;
-	}
-	else
-	{
-		if (s1[0] == '+')
-			s1++;
-		if (s2[0] == '+')
-			s2++;
-	}
-	if (s1[0] == '0')
-		while (s1[0] == '0')
-			s1++;
-	if (s2[0] == '0')
-		while (s2[0] == '0')
-			s2++;
-	while (s1[x] && s2[x] && ((unsigned char)s1[x] == (unsigned char)s2[x]))
-		x++;
-	if (!s1[x] && !s2[x])
-		err_display(1);
-}
-
-/////////////////////// TEST ///////////////////////////////////////////////////////////////
-
 void	check_double(t_env *piles)
 {
 	int	buff;
@@ -83,8 +52,6 @@ void	check_double(t_env *piles)
 			piles->a = piles->a->prev;
 	}
 }
-
-////////////////////////////////////////////////////////////////////////////////////////////
 
 static void	is_int(char *arg)
 {
@@ -134,27 +101,22 @@ void	check_args(char **argv, int argc)
 {
 	char	*temp;
 	int		x;
-	int		buff;
 
-	x = 1;
-	buff = 0;
+	x = 0;
 	if (argc < 1)
 		exit(0);
 	else if (argc == 1)
 	{
-		temp = argv[0]; // can it check non num?
+		temp = argv[0];
 		is_num(temp);
 	}
 	else
 	{
-		while (argv[buff])
+		while (argv[x])
 		{
-			x = buff;
-			temp = argv[buff];
+			temp = argv[x];
 			is_num(temp);
-			while (argv[++x])
-				ft_strxcmp((const char *)temp, (const char *)argv[x]); //need to rm
-			buff++;
+			x++;
 		}
 	}
 }
