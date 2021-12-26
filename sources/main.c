@@ -6,7 +6,7 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 18:01:17 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/24 17:55:00 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/26 16:35:50 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ int	main(int argc, char **argv)
 	t_env	*piles;
 
 	piles = pile_filler (argv, argc);
+	check_double(piles);
 	is_sorted(piles);
 	argc = arg_count(piles, argc);
 	while (piles->a->prev)

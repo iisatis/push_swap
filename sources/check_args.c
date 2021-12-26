@@ -6,7 +6,7 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 07:40:12 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/26 15:59:35 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/26 16:44:43 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,33 @@ static void	ft_strxcmp(const char *s1, const char *s2)
 	if (!s1[x] && !s2[x])
 		err_display(1);
 }
+
+/////////////////////// TEST ///////////////////////////////////////////////////////////////
+
+void	check_double(t_env *piles)
+{
+	int	buff;
+
+	while (piles->a->prev)
+		piles->a = piles->a->prev;
+	while (piles->a->next)
+	{
+		buff = piles->a->data;
+		while (piles->a->next)
+		{
+			piles->a = piles->a->next;
+			if (piles->a->data == buff)
+			{
+				clear_piles(piles);
+				err_display(1);
+			}
+		}
+		while (piles->a->prev->data != buff)
+			piles->a = piles->a->prev;
+	}
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////
 
 static void	is_int(char *arg)
 {
@@ -115,7 +142,7 @@ void	check_args(char **argv, int argc)
 		exit(0);
 	else if (argc == 1)
 	{
-		temp = argv[0];
+		temp = argv[0]; // can it check non num?
 		is_num(temp);
 	}
 	else
@@ -126,7 +153,7 @@ void	check_args(char **argv, int argc)
 			temp = argv[buff];
 			is_num(temp);
 			while (argv[++x])
-				ft_strxcmp((const char *)temp, (const char *)argv[x]);
+				ft_strxcmp((const char *)temp, (const char *)argv[x]); //need to rm
 			buff++;
 		}
 	}
