@@ -6,7 +6,7 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 07:40:12 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/24 17:58:12 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/26 15:59:35 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,24 +35,24 @@ static void	ft_strxcmp(const char *s1, const char *s2)
 	size_t	x;
 
 	x = 0;
-	if (s1[0] == '+')
-		s1++;
-	if (s2[0] == '+')
-		s2++;
-	if (s1[0] == '0')
+	if (s1[0] == '-' && s2[0] == '-')
 	{
+		s1++;
+		s2++;
+	}
+	else
+	{
+		if (s1[0] == '+')
+			s1++;
+		if (s2[0] == '+')
+			s2++;
+	}
+	if (s1[0] == '0')
 		while (s1[0] == '0')
 			s1++;
-		if (!s1[0])
-			s1--;
-	}
 	if (s2[0] == '0')
-	{
 		while (s2[0] == '0')
 			s2++;
-		if (!s2[0])
-			s2--;
-	}
 	while (s1[x] && s2[x] && ((unsigned char)s1[x] == (unsigned char)s2[x]))
 		x++;
 	if (!s1[x] && !s2[x])
