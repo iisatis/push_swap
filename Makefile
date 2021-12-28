@@ -6,7 +6,7 @@
 #    By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/22 15:46:55 by pflorent          #+#    #+#              #
-#    Updated: 2021/12/24 15:56:20 by pflorent         ###   ########.fr        #
+#    Updated: 2021/12/27 15:24:57 by pflorent         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,11 +32,11 @@ SRCS	= $(addprefix $(SRCS_P), $(SRCS_F))
 
 OBJS	= $(SRCS:.c=.o)
 
-HEAD	= -I includes/
+HEAD	= -I ./includes/push_swap.h
 
 CC		= gcc
 
-CFLAGS	= -Wall -Wextra -Werror -fsanitize=address
+CFLAGS	= -Wall -Wextra -Werror
 
 RM		= rm -f
 
