@@ -6,7 +6,7 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 07:37:00 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/24 17:59:26 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/28 17:45:27 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,18 +65,21 @@ static int	check_pos(t_env *piles)
 	int	pos_down;
 	int	buff;
 
-	while (piles->b->prev)
-		piles->b = piles->b->prev;
-	buff = 0;
+	buff = 42;
 	while (piles->a->next)
 	{
-		piles->a = piles->a->next;
-		if (piles->a->prev->pos < piles->b->pos
-			&& piles->a->pos > piles->b->pos)
+		if (piles->a->pos > piles->b->pos && piles->a->pos < buff)
 			buff = piles->a->pos;
+		piles->a = piles->a->next;
 	}
-	if (buff == 0)
-		return (0);
+	if (piles->a->pos > piles->b->pos && piles->a->pos < buff)
+		buff = piles->a->pos;
+	if (buff == 42)
+	{
+		while (piles->a->prev && piles->a->prev->pos < piles->a->pos)
+			piles->a = piles->a->prev;
+		buff = piles->a->pos;
+	}
 	pos_up = check_up(piles, buff);
 	pos_down = check_down(piles, buff);
 	if (pos_up <= pos_down)
@@ -98,6 +101,8 @@ void	sort_small(t_env *piles, int argc)
 	{
 		while (piles->a->prev)
 			piles->a = piles->a->prev;
+		while (piles->b->prev)
+			piles->b = piles->b->prev;
 		pos = check_pos(piles);
 		rotate_pile_a2(piles, pos);
 		push_a(piles);
