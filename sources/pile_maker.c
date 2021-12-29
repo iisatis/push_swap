@@ -6,7 +6,7 @@
 /*   By: pflorent <pflorent@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 16:57:48 by pflorent          #+#    #+#             */
-/*   Updated: 2021/12/26 16:35:50 by pflorent         ###   ########.fr       */
+/*   Updated: 2021/12/29 14:50:58 by pflorent         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,13 @@ static int	ft_atoi(const char *str)
 
 static void	pos_parser(t_env *piles, int len)
 {
-	int	buff;
+	long	buff;
 
 	while (piles->a->prev)
 		piles->a = piles->a->prev;
 	while (len >= 0)
 	{
-		buff = -2147483648;
+		buff = -2147483649;
 		while (piles->a->next)
 		{
 			if (piles->a->data > buff && !piles->a->pos)
